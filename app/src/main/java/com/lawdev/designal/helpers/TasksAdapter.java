@@ -16,7 +16,7 @@ import java.util.Collections;
 import github.nisrulz.recyclerviewhelper.RVHAdapter;
 import github.nisrulz.recyclerviewhelper.RVHViewHolder;
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ItemViewHolder>
+public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.ItemViewHolder>
         implements RVHAdapter {
 
     public class ItemViewHolder extends RecyclerView.ViewHolder implements RVHViewHolder {
@@ -43,7 +43,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ItemViewHolder>
 
     private final ArrayList<Task> items = new ArrayList<>();
 
-    public MyAdapter(ArrayList<Task> tasks) {
+    public TasksAdapter(ArrayList<Task> tasks) {
         items.addAll(tasks);
     }
 

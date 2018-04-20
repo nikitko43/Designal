@@ -1,9 +1,19 @@
 package com.lawdev.designal.main_activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
 import com.lawdev.designal.R;
+import com.lawdev.designal.helpers.GroupsAdapter;
+import com.lawdev.designal.helpers.GroupsData;
+import com.lawdev.designal.helpers.PerformersAdapter;
+import com.lawdev.designal.helpers.PerformersData;
 
 /*
    Окно групп.
@@ -32,5 +42,32 @@ public class GroupsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_groups);
+
+        GroupsAdapter groupsAdapter;
+
+        groupsAdapter = new GroupsAdapter(getApplicationContext(), new GroupsData().getGroups());
+
+        ListView listView = findViewById(R.id.GroupListView);
+        listView.setAdapter(groupsAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getApplicationContext(), this.getClass());
+                intent.putExtra("Selected", i);
+                startActivityForResult(intent, 112);
+            }
+        });
+
     }
+    /*@Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+
+        View view = inflater.inflate(R.layout.activity_groups, container, false);*/
+
+
+       /* });
+
+        return view;*/
+
 }
