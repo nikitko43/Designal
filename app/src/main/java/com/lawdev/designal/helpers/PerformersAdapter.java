@@ -51,7 +51,7 @@ public class PerformersAdapter extends BaseAdapter {
         ((TextView) view.findViewById(R.id.textWorkingOn)).setText(performer.getWorkingOn());
         switch (performer.getId()) {
             case 0:
-                ((ImageView) view.findViewById(R.id.photo)).setImageResource(R.mipmap.lexech);
+                ((ImageView) view.findViewById(R.id.photo)).setImageResource(R.mipmap.nikita);
                 break;
             case 1:
                 ((ImageView) view.findViewById(R.id.photo)).setImageResource(R.mipmap.maksim);
