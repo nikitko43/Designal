@@ -35,10 +35,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static android.Manifest.permission.READ_CONTACTS;
+/*
+   Форма входа.
 
-/**
- * A login screen that offers login via email/password.
- */
+   На нем располагаются:
+
+   1. Иконка приложения.
+   2. Название приложения.
+   3. Два TextEdit'а. перед каждым из них есть иконка (пользователь, либо замок).
+   4. Кнопка Login.
+
+*/
+
 public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
 
     /**
