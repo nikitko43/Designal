@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.lawdev.designal.R;
+import com.lawdev.designal.tabs.CompletedTasksTab;
 import com.lawdev.designal.tabs.PerformersTab;
 import com.lawdev.designal.tabs.TasksTab;
 
@@ -84,9 +85,13 @@ public class MainActivity extends AppCompatActivity {
             switch (position) {
                 case 0:
                     TasksTab tasksTab = new TasksTab();
-                    return new TasksTab();
+                    return tasksTab;
 
                 case 1:
+                    CompletedTasksTab completedTasksTab = new CompletedTasksTab();
+                    return completedTasksTab;
+
+                case 2:
                     PerformersTab performersTab = new PerformersTab();
                     return performersTab;
 
@@ -96,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            return 2;
+            return 3;
         }
     }
 }
