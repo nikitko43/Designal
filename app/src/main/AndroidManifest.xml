@@ -15,12 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".main_activities.AddActivity" />
-        <activity android:name=".main_activities.GroupsActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".main_activities.GroupsActivity" />
         <activity
             android:name=".main_activities.LoginActivity"
             android:label="@string/title_activity_login" />
@@ -28,6 +23,10 @@
             android:name=".main_activities.MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 
