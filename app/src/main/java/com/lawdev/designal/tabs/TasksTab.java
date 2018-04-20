@@ -9,8 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.lawdev.designal.R;
-import com.lawdev.designal.entities.Task;
-import com.lawdev.designal.helpers.MyAdapter;
+import com.lawdev.designal.helpers.TasksAdapter;
 import com.lawdev.designal.helpers.TasksData;
 
 import github.nisrulz.recyclerviewhelper.RVHItemClickListener;
@@ -31,7 +30,7 @@ public class TasksTab extends android.support.v4.app.Fragment {
 
         RecyclerView myrecyclerview = view.findViewById(R.id.recycler_view);
 
-        MyAdapter adapter = new MyAdapter(TasksData.tasks);
+        TasksAdapter adapter = new TasksAdapter(TasksData.tasks);
         myrecyclerview.hasFixedSize();
         myrecyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
         myrecyclerview.setAdapter(adapter);
