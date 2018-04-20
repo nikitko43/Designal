@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "406591698278",
+    "firebase_url": "https://designal-7d5de.firebaseio.com",
+    "project_id": "designal-7d5de",
+    "storage_bucket": "designal-7d5de.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:406591698278:android:2556753a58efca26",
+        "android_client_info": {
+          "package_name": "com.lawdev.designal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "406591698278-6lthfs9c5g4iir3r8l1oc77aecha5r4n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lawdev.designal",
+            "certificate_hash": "db44c187aa7d2ffa8245c2569936a99cdae3f489"
+          }
+        },
+        {
+          "client_id": "406591698278-cdir4fcdggm5eac19cerchtuihr20jag.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCol-JBlEar7W4MxPEZcFbwt6tIih31_Bg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "406591698278-cdir4fcdggm5eac19cerchtuihr20jag.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -8,7 +8,7 @@
     tools:context=".main_activities.MainActivity">
 
     <ListView
-        android:id="@+id/mainListView"
+        android:id="@+id/lv_finished_tasks"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="5dp"
