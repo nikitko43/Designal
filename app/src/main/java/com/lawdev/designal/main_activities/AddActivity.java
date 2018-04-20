@@ -1,9 +1,10 @@
-package com.lawdev.designal;
+package com.lawdev.designal.main_activities;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+
+import com.lawdev.designal.R;
 
 public class AddActivity extends AppCompatActivity {
 

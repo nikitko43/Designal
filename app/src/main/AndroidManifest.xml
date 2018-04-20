@@ -14,13 +14,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddActivity" />
-        <activity android:name=".GroupsActivity" />
+        <activity android:name=".main_activities.AddActivity" />
+        <activity android:name=".main_activities.GroupsActivity" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".main_activities.LoginActivity"
             android:label="@string/title_activity_login" />
         <activity
-            android:name=".MainActivity"
+            android:name=".main_activities.MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

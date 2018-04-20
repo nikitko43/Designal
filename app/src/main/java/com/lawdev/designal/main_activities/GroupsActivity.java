@@ -1,7 +1,9 @@
-package com.lawdev.designal;
+package com.lawdev.designal.main_activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.lawdev.designal.R;
 
 /*
    Окно групп.
