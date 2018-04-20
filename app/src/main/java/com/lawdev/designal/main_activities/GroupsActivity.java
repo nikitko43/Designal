@@ -1,7 +1,9 @@
 package com.lawdev.designal.main_activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 import com.lawdev.designal.R;
 
@@ -32,5 +34,10 @@ public class GroupsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_groups);
+    }
+
+    public void clickGroup(View v){
+        Intent intent = new Intent(GroupsActivity.this, MainActivity.class);
+        startActivity(intent);
     }
 }
