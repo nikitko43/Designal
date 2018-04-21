@@ -1,5 +1,8 @@
 package com.lawdev.designal.main_activities;
 
+import android.app.ActionBar;
+import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -9,13 +12,30 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.lawdev.designal.R;
+import com.lawdev.designal.entities.Group;
+import com.lawdev.designal.helpers.TasksData;
 import com.lawdev.designal.tabs.CompletedTasksTab;
 import com.lawdev.designal.tabs.PerformersTab;
 import com.lawdev.designal.tabs.TasksTab;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /*
    Главное окно приложения.
@@ -40,13 +60,18 @@ import com.lawdev.designal.tabs.TasksTab;
 */
 
 public class MainActivity extends AppCompatActivity {
+
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        mAuth = FirebaseAuth.getInstance(); //получение экземпляра класса FirebaseAuth, для работы с разграничение доступа
+        final FirebaseUser currentUser = mAuth.getCurrentUser();
+
         SectionsPagerAdapter mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         ViewPager mViewPager = findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
@@ -56,21 +81,24 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        // Inflate your main_menu into the menu
+        getMenuInflater().inflate(R.menu.menu_edit, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == R.id.action_settings) {
-            return true;
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.add:
+                return true;
+//            case R.id.help:
+//                showHelp();
+//                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-
-        return super.onOptionsItemSelected(item);
     }
 
 

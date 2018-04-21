@@ -43,24 +43,13 @@ public class GroupsAdapter extends BaseAdapter {
         View view = convertView;
 
         if (view == null) {
-            view = layoutInflater.inflate(R.layout.performer_item, parent, false);
+            view = layoutInflater.inflate(R.layout.group_item, parent, false);
         }
 
         Group group = getGroup(position);
 
-        ((TextView) view.findViewById(R.id.textName)).setText(group.getName());
-        ((TextView) view.findViewById(R.id.textWorkingOn)).setText(group.getMainTask());
-        /*switch (group.getId()) {
-            case 0:
-                ((ImageView) view.findViewById(R.id.photo)).setImageResource(R.mipmap.nikita);
-                break;
-            case 1:
-                ((ImageView) view.findViewById(R.id.photo)).setImageResource(R.mipmap.maksim);
-                break;
-            case 2:
-                ((ImageView) view.findViewById(R.id.photo)).setImageResource(R.mipmap.mark);
-                break;
-        }*/
+        ((TextView) view.findViewById(R.id.tv_name_group)).setText(group.getName());
+        ((TextView) view.findViewById(R.id.tv_description_group)).setText(group.getMainTask());
 
         return view;
     }

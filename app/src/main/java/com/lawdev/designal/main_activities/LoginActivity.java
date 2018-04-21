@@ -11,11 +11,18 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.lawdev.designal.R;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /*
    Форма входа.
@@ -31,6 +38,7 @@ import com.lawdev.designal.R;
 public class LoginActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {    //вызывается при создании формы
@@ -54,25 +62,43 @@ public class LoginActivity extends AppCompatActivity {
         else if (password.equals("")){
             Toast.makeText(LoginActivity.this, "Введите пароль", Toast.LENGTH_SHORT).show();
         }
-        else {
-            mAuth.signInWithEmailAndPassword(email, password)
+        else mAuth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                // Sign in success, update UI with the signed-in user's information
+
                                 Intent intent = new Intent(LoginActivity.this, GroupsActivity.class);
                                 startActivity(intent);
                                 finish();
-                            }
-                            else {
+                            } else {
                                 // If sign in fails, display a message to the user.
                                 Toast.makeText(LoginActivity.this, "Неверный логин/пароль", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
-        }
     }
+
+//    public void addUserToDataBase(String name, String surname, String email) {
+//        // Sign in success, update UI with the signed-in user's information
+//        Map<String, Object> user = new HashMap<>();
+//        user.put("first", "Alan");
+//        user.put("last", "Turing");
+//        user.put("email", "");
+//
+//        db.collection("users")
+//                .add(user)
+//                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+//                    @Override
+//                    public void onSuccess(DocumentReference documentReference) {
+//                    }
+//                })
+//                .addOnFailureListener(new OnFailureListener() {
+//                    @Override
+//                    public void onFailure(@NonNull Exception e) {
+//                    }
+//                });
+//    }
 
     public void onClickToRegistration(View v) {
         Intent intent = new Intent(LoginActivity.this, RegistrationActivity.class);

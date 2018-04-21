@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -19,19 +20,20 @@
         <activity
             android:name=".main_activities.LoginActivity"
             android:label="@string/title_activity_login">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".main_activities.MainActivity"
             android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-        <activity android:name=".main_activities.RegistrationActivity"
-            android:label="Регистрация">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".main_activities.RegistrationActivity"
+            android:label="Регистрация" />
+        <activity android:name=".main_activities.SecondLoginActivity" />
     </application>
 
 </manifest>
