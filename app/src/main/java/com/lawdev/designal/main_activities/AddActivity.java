@@ -12,7 +12,7 @@ public class AddActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Designal – Добавление задачи");
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {   //вызывается при выборе элемента из Action bar

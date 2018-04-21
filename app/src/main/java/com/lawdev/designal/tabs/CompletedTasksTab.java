@@ -57,10 +57,9 @@ public class CompletedTasksTab extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 TasksData.tasks.add(TasksData.finished_tasks.get(i));
-                TasksTab.task = TasksData.finished_tasks.get(i);
                 TasksData.finished_tasks.remove(i);
+                TasksTab.tasks = TasksData.tasks;
                 ftAdapter.notifyDataSetChanged();
-                TasksTab.position = i;
 
             }
         });

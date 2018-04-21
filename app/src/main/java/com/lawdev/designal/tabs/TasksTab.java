@@ -14,6 +14,9 @@ import com.lawdev.designal.entities.Task;
 import com.lawdev.designal.helpers.TasksAdapter;
 import com.lawdev.designal.helpers.TasksData;
 
+import java.util.Collection;
+import java.util.Collections;
+
 import github.nisrulz.recyclerviewhelper.RVHItemClickListener;
 import github.nisrulz.recyclerviewhelper.RVHItemDividerDecoration;
 import github.nisrulz.recyclerviewhelper.RVHItemTouchHelperCallback;
@@ -26,15 +29,17 @@ public class TasksTab extends android.support.v4.app.Fragment {
 
     TasksData taskData = new TasksData();
     final TasksAdapter adapter = new TasksAdapter(TasksData.tasks);
-    public static int position = -1;
-    public static Task task = null;
+
+    public static Collection tasks = null;
     public void update() {
         System.out.print("lol");
         adapter.notifyDataSetChanged();
-        if(position != -1) {
-            adapter.add(task);
-            position = -1;
-        }
+
+            if(tasks != null) {
+                adapter.add(tasks);
+                tasks = null;
+            }
+
     }
 
     public void onResume() {
@@ -48,6 +53,7 @@ public class TasksTab extends android.support.v4.app.Fragment {
     @Override
     public void onPause() {
         super.onPause();
+
 
         update();
     }
@@ -82,4 +88,5 @@ public class TasksTab extends android.support.v4.app.Fragment {
 
 
     }
+
 }

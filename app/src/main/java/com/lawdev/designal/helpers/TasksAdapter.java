@@ -11,6 +11,7 @@ import com.lawdev.designal.R;
 import com.lawdev.designal.entities.Task;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 
 import github.nisrulz.recyclerviewhelper.RVHAdapter;
@@ -83,9 +84,10 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.ItemViewHold
         return false;
     }
 
-    public void add(Task o) {
-        items.add(items.size(), o);
-        notifyItemInserted(items.size());
+    public void add(Collection o) {
+        items.clear();
+        items.addAll(o);
+        notifyItemRangeInserted(0, items.size() - 1);
         notifyDataSetChanged();
     }
 

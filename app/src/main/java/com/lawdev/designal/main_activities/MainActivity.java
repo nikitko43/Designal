@@ -1,5 +1,6 @@
 package com.lawdev.designal.main_activities;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -15,6 +16,7 @@ import android.view.MotionEvent;
 import android.view.View;
 
 import com.lawdev.designal.R;
+import com.lawdev.designal.helpers.TasksData;
 import com.lawdev.designal.tabs.CompletedTasksTab;
 import com.lawdev.designal.tabs.PerformersTab;
 import com.lawdev.designal.tabs.TasksTab;
@@ -90,7 +92,11 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.action_settings) {
+        switch(id) {
+
+            case R.id.action_settings:
+                Intent intent = new Intent(MainActivity.this, AddActivity.class);
+                startActivity(intent);
             return true;
         }
 
