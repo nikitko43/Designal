@@ -44,6 +44,6 @@
         android:tint="#4d7198"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/ok" />
+        app:srcCompat="@mipmap/time" />
 
 </android.support.constraint.ConstraintLayout>

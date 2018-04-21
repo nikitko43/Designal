@@ -11,23 +11,40 @@
         android:id="@+id/tv_name_finished"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="Название"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@android:color/background_dark"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageBut1ton1"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_description_finished"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="19dp"
+        android:layout_marginLeft="17dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="16dp"
         android:text="Описание"
         android:textColor="@android:color/darker_gray"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageBut1ton1"
         app:layout_constraintTop_toBottomOf="@+id/tv_name_finished" />
+
+    <ImageView
+        android:id="@+id/imageBut1ton1"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="19dp"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="28dp"
+        android:src="@mipmap/ok"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+
+
 
 </android.support.constraint.ConstraintLayout>
