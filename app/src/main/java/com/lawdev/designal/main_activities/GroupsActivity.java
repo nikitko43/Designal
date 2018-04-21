@@ -52,9 +52,8 @@ public class GroupsActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(getApplicationContext(), this.getClass());
-                intent.putExtra("Selected", i);
-                startActivityForResult(intent, 112);
+                Intent intent = new Intent(GroupsActivity.this, MainActivity.class);
+                startActivity(intent);
             }
         });
 

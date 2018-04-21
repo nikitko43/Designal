@@ -9,9 +9,9 @@ import java.util.List;
 public class GroupsData {
     public static ArrayList<Group> groups = new ArrayList<>();
     public GroupsData(){
-        groups.add(new Group("Студенты МГТУ", "2"));
-        groups.add(new Group("Участники BestHack", "4"));
-        groups.add(new Group("Команда LawTeam", "6"));
+        groups.add(new Group("Студенты МГТУ", "Общие задания"));
+        groups.add(new Group("Участники BestHack", "Разработка таскменеджера"));
+        groups.add(new Group("Команда LawTeam", "Особые задачи"));
     }
     public ArrayList<Group> getGroups() {
         return groups;

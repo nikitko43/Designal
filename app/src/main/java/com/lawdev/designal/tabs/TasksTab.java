@@ -1,5 +1,6 @@
 package com.lawdev.designal.tabs;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.lawdev.designal.R;
+import com.lawdev.designal.entities.Task;
 import com.lawdev.designal.helpers.TasksAdapter;
 import com.lawdev.designal.helpers.TasksData;
 
@@ -23,35 +25,63 @@ public class TasksTab extends android.support.v4.app.Fragment {
     }
 
     TasksData taskData = new TasksData();
+    final TasksAdapter adapter = new TasksAdapter(TasksData.tasks);
+    public static int position = -1;
+    public static Task task = null;
+    public void update() {
+        System.out.print("lol");
+        adapter.notifyDataSetChanged();
+        if(position != -1) {
+            adapter.add(task);
+            position = -1;
+        }
+    }
+
+    public void onResume() {
+
+        super.onResume();
+        System.out.print("1233333");
+
+        update();
+    }
+
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        System.out.print("1233333");
+
+        update();
+    }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        RecyclerView myrecyclerview = view.findViewById(R.id.recycler_view);
+        final RecyclerView myrecyclerview = view.findViewById(R.id.recycler_view);
 
-        TasksAdapter adapter = new TasksAdapter(TasksData.tasks);
         myrecyclerview.hasFixedSize();
         myrecyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
         myrecyclerview.setAdapter(adapter);
 
-        // Setup onItemTouchHandler
-        ItemTouchHelper.Callback callback = new RVHItemTouchHelperCallback(adapter, true, true, false);
+        ItemTouchHelper.Callback callback = new RVHItemTouchHelperCallback(adapter,
+                true, true, false);
         ItemTouchHelper helper = new ItemTouchHelper(callback);
         helper.attachToRecyclerView(myrecyclerview);
 
-        // Set the divider
         myrecyclerview.addItemDecoration(
                 new RVHItemDividerDecoration(getContext(), LinearLayoutManager.VERTICAL));
 
-        // Set On Click
         myrecyclerview.addOnItemTouchListener(
                 new RVHItemClickListener(getContext(), new RVHItemClickListener.OnItemClickListener() {
                     @Override
                     public void onItemClick(View view, int position) {
-
+                        TasksData.finished_tasks.add(TasksData.tasks.get(position));
+                        TasksData.tasks.remove(position);
+                        adapter.remove(position);
                     }
                 }));
+
 
     }
 }

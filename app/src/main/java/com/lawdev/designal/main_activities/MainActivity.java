@@ -11,6 +11,8 @@ import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
 
 import com.lawdev.designal.R;
 import com.lawdev.designal.tabs.CompletedTasksTab;
@@ -56,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
@@ -73,7 +77,6 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
         SectionsPagerAdapter(FragmentManager fm) {
@@ -85,10 +88,14 @@ public class MainActivity extends AppCompatActivity {
             switch (position) {
                 case 0:
                     TasksTab tasksTab = new TasksTab();
+                    tasksTab.update();
+                    System.out.print("123123");
                     return tasksTab;
 
                 case 1:
                     CompletedTasksTab completedTasksTab = new CompletedTasksTab();
+                    completedTasksTab.update();
+                    System.out.print("123123");
                     return completedTasksTab;
 
                 case 2:

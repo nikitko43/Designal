@@ -18,4 +18,6 @@ public class TasksData {
         finished_tasks.add(new Task("Узнать, что такое ListView", "В гугле"));
         finished_tasks.add(new Task("Выучить Java", "Возможное невозможно"));
     }
+
+
 }

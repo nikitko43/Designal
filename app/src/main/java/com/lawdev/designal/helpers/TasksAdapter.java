@@ -83,7 +83,13 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.ItemViewHold
         return false;
     }
 
-    private void remove(int position) {
+    public void add(Task o) {
+        items.add(items.size(), o);
+        notifyItemInserted(items.size());
+        notifyDataSetChanged();
+    }
+
+    public void remove(int position) {
         items.remove(position);
         notifyItemRemoved(position);
     }

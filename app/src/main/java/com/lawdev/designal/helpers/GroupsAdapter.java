@@ -43,7 +43,7 @@ public class GroupsAdapter extends BaseAdapter {
         View view = convertView;
 
         if (view == null) {
-            view = layoutInflater.inflate(R.layout.performer_item, parent, false);
+            view = layoutInflater.inflate(R.layout.group_item, parent, false);
         }
 
         Group group = getGroup(position);
