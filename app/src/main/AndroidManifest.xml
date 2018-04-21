@@ -28,14 +28,14 @@
         </activity>
         <activity
             android:name=".main_activities.MainActivity"
-            android:label="@string/title_activity_main"/>
+            android:label="@string/title_activity_main"
+            />
 
         <activity android:name=".main_activities.SecondLoginActivity"
             android:label="Регистрация" />
 
             <activity
-            android:name=".main_activities.RegistrationActivity" 
-      android:theme="@style/AppTheme.NoActionBar" />
+            android:name=".main_activities.RegistrationActivity"/>
     </application>
 
 </manifest>

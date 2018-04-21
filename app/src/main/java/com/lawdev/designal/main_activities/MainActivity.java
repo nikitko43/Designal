@@ -71,8 +71,9 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onPageSelected(int position) {
-                tasksTab.update();
-                completedTasksTab.update();
+                if(tasksTab != null) tasksTab.update();
+                if(tasksTab != null) completedTasksTab.update();
+                System.out.print("lll");
             }
 
             @Override
@@ -122,10 +123,12 @@ public class MainActivity extends AppCompatActivity {
             switch (position) {
                 case 0:
                     tasksTab = new TasksTab();
+                    tasksTab.update();
                     return tasksTab;
 
                 case 1:
                     completedTasksTab = new CompletedTasksTab();
+                    tasksTab.update();
                     return completedTasksTab;
 
                 case 2:
