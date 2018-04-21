@@ -51,8 +51,10 @@ public class RegistrationActivity extends AppCompatActivity {
                     Toast.LENGTH_SHORT).show();
         }
 
-        String email = et_email.getText().toString();
-        String password = et_password.getText().toString();
+        final String name = et_name.getText().toString();
+        final String surname = et_surname.getText().toString();
+        final String email = et_email.getText().toString();
+        final String password = et_password.getText().toString();
 
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -61,7 +63,10 @@ public class RegistrationActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             FirebaseUser user = mAuth.getCurrentUser();
-                            Intent intent = new Intent(RegistrationActivity.this, MainActivity.class);
+                            Intent intent = new Intent(RegistrationActivity.this, SecondLoginActivity.class);
+                            intent.putExtra("email", email);
+                            intent.putExtra("name", name);
+                            intent.putExtra("surname", surname);
                             startActivity(intent);
                             finish();
                         } else {

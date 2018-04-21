@@ -1,16 +1,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.lawdev.designal.main_activities.MainActivity">
+    tools:context="com.lawdev.designal.main_activities.GroupsActivity">
     <item
         android:id="@+id/action_add"
         android:orderInCategory="100"
-        android:title="Создать группу"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/action_profile"
-        android:orderInCategory="100"
-        android:title="Профиль"
+        android:title="Добавить"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_settings"

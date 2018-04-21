@@ -1,22 +1,20 @@
 package com.lawdev.designal.main_activities;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.design.widget.TabLayout;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
-import android.view.View;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.lawdev.designal.R;
-import com.lawdev.designal.helpers.TasksData;
 import com.lawdev.designal.tabs.CompletedTasksTab;
 import com.lawdev.designal.tabs.PerformersTab;
 import com.lawdev.designal.tabs.TasksTab;
@@ -47,13 +45,17 @@ public class MainActivity extends AppCompatActivity {
     TasksTab tasksTab;
     CompletedTasksTab completedTasksTab;
 
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        mAuth = FirebaseAuth.getInstance(); //получение экземпляра класса FirebaseAuth, для работы с разграничение доступа
+        final FirebaseUser currentUser = mAuth.getCurrentUser();
+
         SectionsPagerAdapter mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         ViewPager mViewPager = findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
@@ -81,27 +83,33 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
     @Override
+
+
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        // Inflate your main_menu into the menu
+        getMenuInflater().inflate(R.menu.menu_edit, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
         int id = item.getItemId();
 
-        switch(id) {
+        switch (id) {
 
             case R.id.action_settings:
                 Intent intent = new Intent(MainActivity.this, AddActivity.class);
                 startActivity(intent);
-            return true;
-        }
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
 
-        return super.onOptionsItemSelected(item);
+
+        }
     }
+
 
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
@@ -124,9 +132,12 @@ public class MainActivity extends AppCompatActivity {
                     PerformersTab performersTab = new PerformersTab();
                     return performersTab;
 
-                default: return null;
+                default:
+                    return null;
             }
+
         }
+
 
         @Override
         public int getCount() {
@@ -134,4 +145,3 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 }
-

@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="90dp"
     android:orientation="horizontal"
     tools:layout_editor_absoluteY="81dp">
 
 
     <TextView
-        android:id="@+id/textName"
+        android:id="@+id/tv_name_group"
         android:layout_width="349dp"
         android:layout_height="42dp"
         android:layout_marginLeft="16dp"
@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textWorkingOn"
+        android:id="@+id/tv_description_group"
         android:layout_width="346dp"
         android:layout_height="59dp"
         android:layout_marginLeft="16dp"
@@ -34,5 +34,6 @@
         android:textColor="#000000"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textName" />
+
 
 </android.support.constraint.ConstraintLayout>
