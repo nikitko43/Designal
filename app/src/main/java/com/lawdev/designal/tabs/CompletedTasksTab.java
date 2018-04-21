@@ -30,7 +30,6 @@ public class CompletedTasksTab extends Fragment {
     public void onResume() {
 
         super.onResume();
-        System.out.print("1233333");
 
         update();
     }
@@ -38,7 +37,6 @@ public class CompletedTasksTab extends Fragment {
     @Override
     public void onPause() {
         super.onPause();
-        System.out.print("1233333");
 
         update();
     }

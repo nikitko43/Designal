@@ -40,7 +40,6 @@ public class TasksTab extends android.support.v4.app.Fragment {
     public void onResume() {
 
         super.onResume();
-        System.out.print("1233333");
 
         update();
     }
@@ -49,7 +48,6 @@ public class TasksTab extends android.support.v4.app.Fragment {
     @Override
     public void onPause() {
         super.onPause();
-        System.out.print("1233333");
 
         update();
     }

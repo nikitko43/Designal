@@ -42,6 +42,9 @@ import com.lawdev.designal.tabs.TasksTab;
 */
 
 public class MainActivity extends AppCompatActivity {
+    TasksTab tasksTab;
+    CompletedTasksTab completedTasksTab;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +59,23 @@ public class MainActivity extends AppCompatActivity {
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
+        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                tasksTab.update();
+                completedTasksTab.update();
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
     }
 
 
@@ -87,15 +107,11 @@ public class MainActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    TasksTab tasksTab = new TasksTab();
-                    tasksTab.update();
-                    System.out.print("123123");
+                    tasksTab = new TasksTab();
                     return tasksTab;
 
                 case 1:
-                    CompletedTasksTab completedTasksTab = new CompletedTasksTab();
-                    completedTasksTab.update();
-                    System.out.print("123123");
+                    completedTasksTab = new CompletedTasksTab();
                     return completedTasksTab;
 
                 case 2:
